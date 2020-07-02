@@ -1,0 +1,21 @@
+message = input("Choose:\n1)Rock\n2)Paper\n3)Scissors")
+while True:
+    choice_first_player = int(input("1 or 2 or 3?: "))
+    choice_second_player = int(input("1 or 2 or 3?: "))
+    if choice_first_player == choice_second_player:
+        print("It's a tie!")
+    elif choice_first_player == 1 and choice_second_player == 2:
+        print('Second player win!')
+    elif choice_first_player == 1 and choice_second_player == 3:
+        print('First player win!')
+    elif choice_first_player == 2 and choice_second_player == 1:
+        print('First player win!')
+    elif choice_first_player == 2 and choice_second_player == 3:
+        print('Second player win!')
+    elif choice_first_player == 3 and choice_second_player == 1:
+        print('Second player win!')
+    elif choice_first_player == 3 and choice_second_player == 2:
+        print('First player win!')
+    break
+else:
+    print('Write wrong numbers or smth else')
