@@ -1,0 +1,7 @@
+# Write words and take it back in reverse order. Ex: 1 2 3 4 - 4 3 2 1
+string = str(input("Write your words: "))
+def words(string):
+    lst = string.split(' ')
+    lst.reverse()
+    return (' ').join(lst)
+print(words(string))
