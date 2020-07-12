@@ -1,0 +1,96 @@
+"""
+Hello, I'm fancer and this is my first app.
+Yes, it's just a simple calc with tkinter :)
+Good Luck
+"""
+
+from tkinter import *
+from tkinter import messagebox
+
+app = Tk()
+app.title("fancer's calculator //ver 1.0//")
+app.geometry('345x330+350+350')
+app.resizable(width=False, height=False)
+app.configure(background='#00CED1')
+
+
+# def's block:
+def plus():
+    a = int(first_number.get())
+    b = int(second_number.get())
+    res = str(a+b)
+    text.insert(END, res + '\n')
+
+
+def minus():
+    a = int(first_number.get())
+    b = int(second_number.get())
+    res = str(a - b)
+    text.insert(END, res + '\n')
+
+
+def multiply():
+    a = int(first_number.get())
+    b = int(second_number.get())
+    res = str(a * b)
+    text.insert(END, res + '\n')
+
+
+def devide():
+    a = int(first_number.get())
+    b = int(second_number.get())
+    res = str(a / b)
+    text.insert(END, res + '\n')
+
+
+def exponentiation():
+    a = int(first_number.get())
+    b = int(second_number.get())
+    res = str(a ** b)
+    text.insert(END, res + '\n')
+
+
+def rooting():
+    a = int(first_number.get())
+    b = int(second_number.get())
+    res = str(a**(1/b))
+    text.insert(END, res + '\n')
+
+
+def clean():
+    text.delete(1.0, END)
+
+
+def author():
+    messagebox.showinfo("Author", "fancer\n\nJuly 2020\n\nRussia")
+
+
+#tkinter, buttons, styles, backgrounds etc.:
+first_number = Entry(width=15)
+first_number.grid(row=0, column=0)
+second_number = Entry(width=15)
+second_number.grid(row=0, column=1)
+text = Text(app, width=14, height=5)
+text.grid(row=0, column=2)
+button_1 = Button(text='+', width=15, height=4, bg='#4B0082', fg='#fff', activebackground='#00CED1', command=plus)
+button_1.grid(row=1, column=0)
+button_2 = Button(text='-', width=15, height=4, bg='#4B0082', fg='#fff', activebackground='#00CED1', command=minus)
+button_2.grid(row=1, column=1)
+button_3 = Button(text='/', width=15, height=4, bg='#4B0082', fg='#fff', activebackground='#00CED1', command=devide)
+button_3.grid(row=1, column=2)
+button_4 = Button(text='*', width=15, height=4, bg='#4B0082', fg='#fff', activebackground='#00CED1', command=multiply)
+button_4.grid(row=2, column=0)
+button_5 = Button(text='E', width=15, height=4, bg='#4B0082', fg='#fff', activebackground='#00CED1',
+                  command=exponentiation)
+button_5.grid(row=2, column=1)
+button_6 = Button(text='R', width=15, height=4, bg='#4B0082', fg='#fff', activebackground='#00CED1', command=rooting)
+button_6.grid(row=2, column=2)
+button_7 = Button(text='Clean', width=45, height=4, bg='#4B0082', fg='#fff', activebackground='#00CED1', relief=RIDGE,
+                  command=clean)
+button_7.grid(row=3, column=0, columnspan=3)
+button_8 = Button(text='Autor', width=45, height=1, bg='#4B0082', fg='#fff', activebackground='#00CED1', relief=RIDGE,
+                  command=author)
+button_8.grid(row=4, column=0, columnspan=3)
+
+
+app.mainloop()
