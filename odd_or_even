@@ -1,0 +1,10 @@
+"""
+Simple program "odd or even(четный)" for beginners in Python july 2020
+"""
+player_nmb = int(input("Write your number: "))
+if player_nmb == 0:
+    print("It's a zero!")
+elif player_nmb % 2 == 0:
+    print(f"Number {player_nmb} is even")
+else:
+    print(f"Number {player_nmb} is odd")
