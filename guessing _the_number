@@ -1,0 +1,53 @@
+"""
+Simple Python project "Guessing the number" july 2020
+
+"""
+import random
+
+
+def play_again():
+    answer = input('Wanna play? y/n/q: ')
+    if answer == 'y':
+        game_start()
+    elif answer == 'n':
+        quit('>>> EXIT <<<')
+    elif answer == 'q':
+        quit('>>> EXIT <<<')
+
+
+def game_start():
+    print('You can try to guess a number from 1 ~ 10.\nYou have 3 guesses\nGood luck!')
+    random_nmb = random.randrange(1, 11)
+    guesses = 3
+
+    while guesses > 0:
+        player_nmb = None
+
+        while True:
+            try:
+                player_nmb = int(input("Write your number: "))
+            except ValueError:
+                continue
+            else:
+                break
+
+        if player_nmb == random_nmb:
+            print(f"You win !")
+            play_again()
+        elif player_nmb < random_nmb:
+            print(f"You {player_nmb} less than random_number.")
+            guesses -= 1
+            print(f"You have {guesses} guesses")
+        elif player_nmb > random_nmb:
+            print(f"Your {player_nmb} is bigger than random_number.")
+            guesses -= 1
+            print(f"You have {guesses} guesses")
+        # elif player_nmb == player_nmb:
+        #     print("Don't repeat numbers!")
+
+    print(f'You loose. Random number was {random_nmb}')
+
+    play_again()
+
+
+game_start()
