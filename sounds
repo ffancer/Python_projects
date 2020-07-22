@@ -1,0 +1,63 @@
+"""
+Good practice with tkinter, sounds, palette and programming. Very fun. July 2020.
+"""
+from tkinter import *
+import winsound
+
+# tkinter begin
+root = Tk()
+root.title('Sounds')
+root.geometry('555x345+300+200')
+root.resizable(width=False, height=False)
+
+
+# block of def-s and sounds(no PEP8 sry) 
+def sound_1():
+    winsound.Beep(900, 1000)
+def sound_2():
+    winsound.Beep(300, 1000)
+def sound_3():
+    winsound.Beep(2000, 1000)
+def sound_4():
+    winsound.Beep(700, 1000)
+def sound_5():
+    winsound.Beep(100, 1000)
+def sound_6():
+    winsound.Beep(10000, 1000)
+def sound_7():
+    winsound.Beep(5000, 600)
+def sound_8():
+    winsound.Beep(30000, 500)
+def sound_9():
+    winsound.Beep(70, 1000)
+
+
+# button&style block
+button_1 = Button(root, text='Sound 1', height=5, width=25, bg='#ffb3fe', activebackground='#ffff33', command=sound_1)
+button_2 = Button(root, text='Sound 2', height=5, width=25, bg='#ffff33', activebackground='#999', command=sound_2)
+button_3 = Button(root, text='Sound 3',height=5, width=25, bg='#33ccff', activebackground='#006600', command=sound_3)
+button_4 = Button(root, text='Sound 4',height=5, width=25, bg='#006699', activebackground='#9999ff', command=sound_4)
+button_5 = Button(root, text='Sound 5',height=5, width=25, bg='#33cc33', activebackground='#666666', command=sound_5)
+button_6 = Button(root, text='Sound 6',height=5, width=25, bg='#0000ff', activebackground='#ff6633', command=sound_6)
+button_7 = Button(root, text='Sound 7',height=5, width=25, bg='#ffcc99', activebackground='#ffcc00', command=sound_7)
+button_8 = Button(root, text='Sound 8',height=5, width=25, bg='#ff6600', activebackground='#99ffff', command=sound_8)
+button_9 = Button(root, text='Sound 9',height=5, width=25, bg='#9999ff', activebackground='#66ffcc', command=sound_9)
+button_10 = Button(root, text='EXIT',height=5, width=25, bg='#993399', activebackground='#66ffcc', command=root.destroy)
+
+# grid section
+button_1.grid(row=0, column=0)
+button_2.grid(row=0, column=1)
+button_3.grid(row=0, column=2)
+button_4.grid(row=1, column=0)
+button_5.grid(row=1, column=1)
+button_6.grid(row=1, column=2)
+button_7.grid(row=2, column=0)
+button_8.grid(row=2, column=1)
+button_9.grid(row=2, column=2)
+button_10.grid(row=3, column=0, columnspan=3)
+
+# favicon section, u need it on your own computer (place .png in folder with your project)
+root.iconphoto(False, PhotoImage(file='dinamic.png'))  # favicon
+
+# tkinter end
+root.mainloop()
