@@ -1,0 +1,31 @@
+"""
+work with dict and list, july 2020
+"""
+
+user = input('Write country or capital: ')
+a = {'Russia': 'Moscow', 'Ukraine': 'Kiev', 'Belarus': 'Minsk', 'USA': 'Washington'}
+key_list = list(a.keys())
+val_list = list(a.values())
+
+
+# TASK 1: if u write "Moscow" - will take "Russia"
+# def get_key(user):
+#     for key, value in a.items():
+#         if user == value:
+#             return key
+#     return "word doesn't belong dictionary"
+# print(get_key(user))
+
+# TASK 2: if u write 'Russia' - will take "Moscow"
+for i in key_list:
+    if i == user and user == key_list[0]:
+        print(val_list[0])
+    elif i == user and user == key_list[1]:
+        print(val_list[1])
+    elif i == user and user == key_list[2]:
+        print(val_list[2])
+    elif i == user and user == key_list[3]:
+        print(val_list[3])
+    else:
+        print("word doesn't belong dictionary")
+        break
