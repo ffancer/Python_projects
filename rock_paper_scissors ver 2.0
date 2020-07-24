@@ -1,0 +1,76 @@
+"""
+rock_paper_scissors ver 2.0
+first here https://github.com/ffancer/Python_projects/blob/master/Rock%20Paper%20Scissors
+second vers. with 'ai', so u can play it alone
+so buggy ._.
+July 2020
+"""
+import random
+
+
+def ai_random():
+    ai_choice = ['Rock', 'Paper', 'Scissors']
+    ai_random = random.choice(ai_choice)
+    return ai_random
+
+
+def play_again():
+    answer = str(input("Wanna play again? Press y/n/q: "))
+    if answer == 'y':
+        game_start()
+    elif answer == 'n':
+        quit('Good luck')
+    elif answer == 'q':
+        quit('EXIT')
+
+
+def game_start():
+    guesses = 5
+
+    while guesses > 0:
+        player = None
+        while True:
+            try:
+                player = int(input("1)Rock 2)Paper 3)Scissors\nPress 1/2/3: "))
+            except ValueError:
+                continue
+            else:
+                break
+
+        if player == 1 and ai_random() == 'Rock':
+            print("It's a tie")
+            ai_random()
+        elif player == 1 and ai_random() == 'Paper':
+            print('You loose')
+            guesses -= 1
+            print(f"You have {guesses} guesses")
+            ai_random()
+        elif player == 1 and ai_random() == 'Scissors':
+            print('You win')
+        elif player == 2 and ai_random() == 'Rock':
+            print("You win")
+        elif player == 2 and ai_random() == 'Paper':
+            print("It's a tie")
+            ai_random()
+        elif player == 2 and ai_random() == 'Scissors':
+            print('You loose')
+            guesses -= 1
+            print(f"You have {guesses} guesses")
+            ai_random()
+        elif player == 3 and ai_random() == 'Rock':
+            print("You loose")
+            guesses -= 1
+            print(f"You have {guesses} guesses1")
+            ai_random()
+        elif player == 3 and ai_random() == 'Paper':
+            print('You win')
+        elif player == 3 and ai_random() == 'Scissors':
+            print("It's a tie")
+            ai_random()
+    if guesses == 0:
+        print("You play 5 times but no win, good luck in future!")
+
+    play_again()
+
+
+game_start()
