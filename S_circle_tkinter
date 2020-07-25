@@ -1,0 +1,36 @@
+from tkinter import *
+from tkinter.ttk import *
+
+root = Tk()
+root.title('Площадь круга')
+
+
+def s_calc(event):
+    R = r.get()
+    S = 3.14 * R ** 2
+    pl.set('%.3f' % S)
+
+
+text_R = Label(root, text='Введите радиус', font='Arial 12')
+text_S = Label(root, text='Площадь:', font='Arial 12')
+
+r = DoubleVar()
+enter_R = Entry(root, width=10, textvariable=r)
+pl = DoubleVar()
+result_S = Entry(root, width=15, textvariable=pl)
+button_answer = Button(root, text='Расчет', width=10)
+button_exit = Button(root, text='Выход', width=10, command=root.destroy)
+
+# grid section
+text_R.grid(row=0, column=0)
+enter_R.grid(row=0, column=1)
+text_S.grid(row=1, column=0)
+result_S.grid(row=1, column=1)
+button_answer.grid(row=2, column=0)
+button_exit.grid(row=2, column=1)
+button_answer.bind('<Button-1>', s_calc)
+
+# favicon (it must be in computer in project's folder)
+root.iconphoto(False, PhotoImage(file='circle.png'))
+
+root.mainloop()
