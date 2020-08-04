@@ -1,0 +1,74 @@
+from tkinter import *
+from tkinter import messagebox
+from tkinter import filedialog
+from PIL import Image
+
+root = Tk()
+root.title("JPEG-PNG converter")
+root.configure(background='#bcd2ee')
+
+# without this 'global' app don't work
+global img
+
+
+# def block
+def get_png():
+    global img
+
+    import_file_path = filedialog.askopenfilename()
+    img = Image.open(import_file_path)
+
+
+def get_jpg():
+    global img
+
+    import_file_path = filedialog.askopenfilename()
+    img = Image.open(import_file_path)
+
+
+def convert_to_png():
+    global img
+
+    export_file_path = filedialog.asksaveasfilename(defaultextension='.png')
+    img.save(export_file_path)
+
+
+def convert_to_jpg():
+    global img
+
+    export_file_path = filedialog.asksaveasfilename(defaultextension='.jpg')
+    img.save(export_file_path)
+
+
+def info():
+    messagebox.showinfo("info", "fancer\n\n4.08.20")
+
+
+def root_exit():
+    exit()
+
+
+# button, style, grid block
+button_1 = Button(text='Import JPG file', font=('monospace', 10), width=15, height=4, bg='#bbedd4', fg='#000',
+                  activebackground='#bbeded', command=get_jpg)
+button_1.grid(row=0, column=0)
+button_2 = Button(text='Import PNG file', font=('monospace', 10), width=15, height=4, bg='#bbeded', fg='#000',
+                  activebackground='#bbedd4', command=get_png)
+button_2.grid(row=0, column=1)
+button_3 = Button(text='Convert JPG to PNG', font=('monospace', 10), width=15, height=4, bg='#bbedd4', fg='#000',
+                  activebackground='#bbeded', command=convert_to_png)
+button_3.grid(row=1, column=0)
+button_4 = Button(text='Convert PNG to JPG', font=('monospace', 10), width=15, height=4, bg='#bbeded', fg='#000',
+                  activebackground='#bbedd4', command=convert_to_jpg)
+button_4.grid(row=1, column=1)
+button_5 = Button(text='info', font=('monospace', 10), width=15, height=4, bg='#bbc8ed', fg='#000',
+                  activebackground='#bbeded', command=info)
+button_5.grid(row=2, column=0)
+button_6 = Button(text='exit', font=('monospace', 10), width=15, height=4, bg='#bbc8ed', fg='#000',
+                  activebackground='#bbeded', command=root_exit)
+button_6.grid(row=2, column=1)
+
+# favicon
+root.iconphoto(False, PhotoImage(file='png-jpg.png'))
+
+root.mainloop()
