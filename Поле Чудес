@@ -1,0 +1,43 @@
+import random
+
+
+def play_again():
+    answer = input('Играем? y/n: ')
+    if answer == 'y':
+        game_start()
+    elif answer == 'n':
+        quit('>>> Выход <<<')
+
+
+def game_start():
+    question = ['2 + 2 * 2 = ?', 'Столица Украины?', 'вопрос_3', 'вопрос_4']
+    answers = ['6', 'Киев', 'ответ_3', 'ответ_4']
+    count = 3
+    rnd_question = str(random.choices(question)).replace("['", '').replace("']", '')
+    print(f"Внимание вопрос: {rnd_question}\nПопыток: {count}")
+
+    while count > 0:
+        player_answer = None
+
+        while True:
+            try:
+                player_answer = input(str("Ваш ответ: "))
+            except ValueError:
+                continue
+            else:
+                break
+
+        if player_answer in answers:
+            print('Правильный ответ!')
+            break
+        else:
+            count -= 1
+            print(f'Число попыток {count}')
+            
+    if count == 0:
+        print('Ты проиграл')
+        play_again()
+    play_again()
+
+
+game_start()
