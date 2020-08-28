@@ -1,0 +1,6 @@
+# Replace numerals from number and got bigger number of all variations
+num = 789045699
+res = [int(x) for x in str(num)]
+res.sort()
+a = res[::-1]
+print(f"Bigger number is {str(a).replace('[', '').replace(']', '').replace(',', '').replace(' ', '')}")
